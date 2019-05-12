@@ -7,6 +7,11 @@ namespace Practice
     {
         static void Main(string[] args)
         {
+            
+        }
+
+        static void ImplicitExplicitDemo()
+        {
             Miles m = new Miles(100.5);
 
             // implicitly convert miles to km
