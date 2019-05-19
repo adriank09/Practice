@@ -11,9 +11,10 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            var ticket = new Ticket(9.99m, TicketClass.Business);
-            
-            Console.WriteLine(ticket);
+            string str1 = "encyclopaedia";
+            string str2 = "encyclopædia";
+
+            Console.WriteLine(str1.Equals(str2, StringComparison.InvariantCulture));
         }
 
         static void ImplicitExplicitDemo()
