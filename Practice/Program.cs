@@ -1,7 +1,9 @@
 ﻿using Practice.Chapter2;
 using Practice.Chapter2.TypeConversions;
 using System;
+using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 
 namespace Practice
 {
@@ -9,10 +11,9 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            var t1 = new Ticket(9.99m, TicketClass.First);
-            var t2 = new Ticket(19.99m, TicketClass.Business);
-
-            Console.WriteLine(t2.CompareTo(t1));
+            var ticket = new Ticket(9.99m, TicketClass.Business);
+            
+            Console.WriteLine(ticket);
         }
 
         static void ImplicitExplicitDemo()
