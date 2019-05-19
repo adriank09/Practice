@@ -16,8 +16,10 @@ namespace Practice
 
             Console.WriteLine(str1.Equals(str2, StringComparison.InvariantCulture));
 
-            var ticket = new Ticket(18.99m, TicketClass.Business);
+            var ticket = new Ticket(18.99m, TicketClass.Business, new System.Globalization.CultureInfo("ja-JP"));
+            Console.WriteLine(ticket.ToString());
             Console.WriteLine("Ticket: {0:G}", ticket);
+            
         }
 
         static void ImplicitExplicitDemo()

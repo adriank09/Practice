@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Practice.Chapter2
@@ -20,11 +21,21 @@ namespace Practice.Chapter2
         public decimal Price { get; private set; }
         public TicketClass Class { get; private set; }
         public DateTime ValidityDate { get; private set; }
-        public Ticket(decimal price, TicketClass ticketClass)
+        public CultureInfo Culture { get; set; }
+        public Ticket(decimal price, TicketClass ticketClass, CultureInfo culture = null)
         {
             Price = price;
             Class = ticketClass;
             ValidityDate = DateTime.Now.AddDays(7);
+            
+            if(culture == null)
+            {
+                Culture = CultureInfo.CurrentCulture;
+            }
+            else
+            {
+                Culture = culture;
+            }
         }
 
         public int CompareTo(Ticket other)
@@ -59,7 +70,7 @@ namespace Practice.Chapter2
 
         public override string ToString()
         {
-            string toString = $"Price: {Price}, Ticket class: {Class}, Validity date: {ValidityDate}";
+            string toString = $"Price: {Price.ToString("C", Culture)}, Ticket class: {Class}, Validity date: {ValidityDate}";
 
             return toString;
         }
