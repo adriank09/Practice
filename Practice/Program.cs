@@ -1,4 +1,5 @@
-﻿using Practice.Chapter2.TypeConversions;
+﻿using Practice.Chapter2;
+using Practice.Chapter2.TypeConversions;
 using System;
 using System.Dynamic;
 
@@ -8,22 +9,10 @@ namespace Practice
     {
         static void Main(string[] args)
         {
-            //MessageDisplay m = new MessageDisplay();
-            //m.Display("Hello world!");
+            var t1 = new Ticket(9.99m, TicketClass.First);
+            var t2 = new Ticket(19.99m, TicketClass.Business);
 
-            ////dynamic d = new MessageDisplay();
-            ////d.TryDisplay("Hello world!");
-
-            //dynamic a = new ExpandoObject();
-            //a.Foo = "Bar";
-
-            //Console.WriteLine(a.Foo);
-
-            Foo foo = new Foo();
-            foo.Display();
-
-            Bar bar = new Bar();
-            bar.Display();
+            Console.WriteLine(t2.CompareTo(t1));
         }
 
         static void ImplicitExplicitDemo()
@@ -37,32 +26,6 @@ namespace Practice
             // explicitly convert miles to int
             int milesInInt = (int)m;
             Console.WriteLine("Miles in int: {0}", milesInInt);
-        }
-    }
-
-    class MessageDisplay
-    {
-        public void Display(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
-
-
-    class Foo
-    {
-        public virtual void Display()
-        {
-            Console.WriteLine("Displaying foo");
-        }
-    }
-
-    class Bar : Foo
-    {
-        public override void Display()
-        {
-            base.Display();
-            Console.WriteLine("Displaying bar");
         }
     }
 }
