@@ -15,7 +15,7 @@ namespace Practice.Chapter2
 
     [Serializable]
     [Promotable(10.0d)]
-    class Ticket : IComparable<Ticket>, IEnumerable<Ticket>
+    class Ticket : IComparable<Ticket>, IEnumerable<Ticket>, IFormattable
     {
         public decimal Price { get; private set; }
         public TicketClass Class { get; private set; }
@@ -62,6 +62,28 @@ namespace Practice.Chapter2
             string toString = $"Price: {Price}, Ticket class: {Class}, Validity date: {ValidityDate}";
 
             return toString;
+        }
+
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            if (string.IsNullOrWhiteSpace(format))
+            {
+                format = "G";
+            }
+
+            switch(format)
+            {
+                case "P":
+                    return Price.ToString();
+                case "C":
+                    return Class.ToString();
+                case "D":
+                    return ValidityDate.ToString();
+                case "G":
+                    return $"Class: {Class}, valid until: {ValidityDate}";
+                default:
+                    throw new FormatException("Format specified was invalid.");
+            }
         }
     }
 }

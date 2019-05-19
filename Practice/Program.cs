@@ -15,6 +15,9 @@ namespace Practice
             string str2 = "encyclopædia";
 
             Console.WriteLine(str1.Equals(str2, StringComparison.InvariantCulture));
+
+            var ticket = new Ticket(18.99m, TicketClass.Business);
+            Console.WriteLine("Ticket: {0:G}", ticket);
         }
 
         static void ImplicitExplicitDemo()
